@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup form</title>
+    <style>
+        body{
+            background: #00c3ff;
+            background: -webkit-linear-gradient(to right, #ffff1c, #00c3ff);
+            background: linear-gradient(to right, #ffff1c, #00c3ff);
+        }
+        .b{
+            display: flex;
+            justify-content:center;
+        }
+        .box{
+            display: inline-flex;
+            align-content: center;
+            background-color: rgb(145, 132, 68);
+            padding:50px;
+            width:fit-content;
+            border-radius: 30px;
+        }
+        .reg{
+            display: inline-flexbox;
+        }
+        .img{
+            display: inline-flexbox;
+            padding: 50px;
+            margin-top: 50px;
+        }
+        #Name,#Roll_no,#mail,#pw,#cpw{
+            padding: 15px;
+            width:250px;
+            padding-left: 30px;
+            border-radius: 40px;
+            border-style: none;
+        }
+        table{
+            width:300px;
+        }
+        h1{
+            margin-left: 60px;
+        }
+    </style>
+    <script>
+        function ValidateForm(){
+            var a=document.forms["login"]["pw"].value;
+            var b=document.forms["login"]["cpw"].value;
+            var name=document.forms["login"]["Name"].value;
+            var patt_n=/[^a-z .A-Z]/g;
+            var patt_p=/^.{8,12}$/g;
+            var mail=document.forms["login"]["mail"].value;
+            var patt_m=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/g;
+            if(patt_n.test(name))
+            {
+                alert("Name field should not contain any special characters!");
+                document.getElementById("Name").focus();
+                return false;
+            }
+            if(!patt_m.test(mail))
+            {
+                alert("This is not a valid mail ID!");
+                document.getElementById("mail").focus();
+                return false;
+            }
+            if(!patt_p.test(a))
+            {
+                alert("Length of password should be Minimum of 8 characters and Maximum of 12 characters!");
+                document.getElementById("pw").focus();
+                return false;
+            }
+            if(a!==b)
+            {
+                alert("Password does not match, Try again!!!");
+                document.getElementById("cpw").focus();
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="b">
+    <div class="box">
+        <div class="reg">
+            <table>
+                <form name="login" action="login.html" onsubmit="return ValidateForm()">
+                <tr><h1>REGISTER</h1></tr>
+                <tr><input type="text" name="Name" id="Name" placeholder="Name"></tr><br><br><br>
+                <tr><input type="number" name="Roll no" id="Roll_no" placeholder="Roll Number" required></tr><br><br><br>
+                <tr><input type="text" name="mail" id="mail" placeholder="Email"></tr><br><br><br>
+                <tr><input type="password" name="pw" id="pw" placeholder="Password"></tr><br><br><br>
+                <tr><input type="password" name="cpw" id="cpw" placeholder="Confirm Password"></tr><br><br><br>
+                <tr>Gender: <input type="radio" id="m" name="gender" required><label for="m">Male</label> <input type="radio" id="f" name="gender"><label for="f">Female</label> <input type="radio" id="o" name="gender"><label for="o">Others</label></tr><br><br>
+                <input style="background: #2980B9;
+                background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);
+                background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);
+                margin-left:100px; border-radius: 20px; width:100px; border-style: none; padding: 10px; color:black" type="submit" value="Register">
+            </form><br><br>
+            <div style="margin-left: 40px;">Already have an account? <a href="login.html">signin</a> </div>
+            </table>
+        </div>
+        <div class="img">
+            <img src="https://allittechexpert.info/wp-content/uploads/2019/11/signup-images2.png" alt="Signup">
+        </div>
+    </div>
+</div>
+</body>
+</html>

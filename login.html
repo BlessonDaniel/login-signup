@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login form</title>
+    <style>
+        body{
+            background-image: url(https://lh6.googleusercontent.com/proxy/SZO2cHrkPtYYEj9KfrD0cp56aQ1c3AhVfUP9uxk4ZQry_MBB-SCDyBb0cmpdwUWGKQTSNYJepaJMEyPTAdf3jO_bQVNx-nphrTUUSA=s0-d);
+        }
+        .b{
+            display: flex;
+            justify-content: center;
+        }
+        .box{
+            display:inline-flex;
+            width:max-content;
+            margin-top: 150px;
+            padding:30px;
+            border-radius: 30px;
+            background-color: white;
+        }
+        .box1{
+            display: inline-flexbox;
+        }
+        .box2{
+            display: inline-flexbox;
+            padding-left: 10px;
+            padding-right: 30px;
+        }
+        #mail,#pw{
+            padding: 15px;
+            width:250px;
+            padding-left: 30px;
+            border-radius: 30px;
+            border-style: none;
+            background: #757F9A;
+            background: -webkit-linear-gradient(to right, #D7DDE8, #757F9A);
+            background: linear-gradient(to right, #D7DDE8, #757F9A);
+        }
+        h1{
+            text-shadow: 0 0 4px #016a8a;
+        }
+    </style>
+    <script>
+        function ValidateForm(){
+            var patt_m=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/g;
+            var mail=document.forms["signup"]["mail"].value;
+            if(!patt_m.test(mail))
+            {
+                alert("This is not a valid mail ID!");
+                document.getElementById("mail").focus();
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="b">
+        <div class="box">
+            <div class="box1">
+                <img src="https://i.gifer.com/IPNp.gif" alt="login">
+            </div>
+            <div class="box2">
+                <table>
+                    <form name="signup" action="https://www.google.com/" onsubmit="return ValidateForm()">
+                    <tr><h1>STUDENT LOGIN</h1></tr>
+                    <tr><input type="text" name="mail" id="mail" placeholder="Email" required></tr><br><br><br>
+                    <tr><input type="password" name="pw" id="pw" placeholder="Password" required></tr><br><br><br>
+                    <input type="submit" value="Submit" style="padding: 10px; margin-left: 100px;background: #2980B9;
+                    background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);
+                    background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);border-style: none; border-radius: 20px; color: black; width: 100px;">
+            </form><br><br>
+            <div style="margin-left: 50px;">if you don't have an account? <a href="signup.html">signup</a></div> 
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
